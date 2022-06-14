@@ -22,9 +22,9 @@ def df_to_nested_dict(df: pd.DataFrame) -> dict:
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser()
-    parser.add_argument("input", type=argparse.FileType("r"))
-    parser.add_argument("output", type=argparse.FileType("w"))
+    parser = argparse.ArgumentParser(description="Aggregate sensors data to its statistics (min, max, median, and mean).")
+    parser.add_argument("input", type=argparse.FileType("r"), help="Input sensors data in JSON")
+    parser.add_argument("output", type=argparse.FileType("w"), help="Output aggregated sensors data in JSON")
     args = parser.parse_args()
 
     data = json.load(args.input)
